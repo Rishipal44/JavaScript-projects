@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #525151f6;
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-family: sans-serif;
+            padding: 1rem 2rem;
+            border: 2px solid black;
+            border-radius: 5px;
+            box-shadow: 0px 2px 10px #6e6e6e;
+        }
+    </style>
+</head>
+<body>
+    <button id="start">Start Changing</button>
+    <button id="stop">Stop Changing</button>
+    <div class="bg">Background-Color: <span>#ffffff</span></div>
+</body>
+<script>
+    const startButton = document.querySelector("#start");
+    const body = document.body;
+    const stopButton = document.querySelector("#stop");
+    const display = document.querySelector(".bg");
+    const span = document.querySelector(".bg span");
+    let random_Color;
+    let intervalId;
+
+    function randomColor(){
+        const hex = "0123456789ABCDEF";
+        let color = "#";
+        for(let i=0; i<6; i++){
+            color += hex[Math.floor(Math.random()*17)];
+        }
+        return color;
+    }
+
+    function startChangingColor(){
+        if(!intervalId){
+            intervalId = setInterval(()=>{
+                random_Color = randomColor();
+                body.style.backgroundColor = random_Color;
+                span.textContent = random_Color;
+            }, 1000);
+        }
+    }
+
+    function stopChangingColor(){
+        clearInterval(intervalId);
+        display.style.backgroundColor = random_Color;
+        intervalId = null;
+    }
+
+    startButton.addEventListener("click", startChangingColor);
+
+    stopButton.addEventListener("click", stopChangingColor);
+</script>
+</html>
