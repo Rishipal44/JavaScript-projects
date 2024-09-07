@@ -1,0 +1,88 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: sans-serif;
+}
+
+.main {
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.openModalButton {
+    padding: 0.5rem 1rem;
+    background: hsl(216, 50%, 60%);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.openModalButton:hover {
+    background: hsl(216, 50%, 50%);
+    box-shadow: 0 3px 10px hsl(216, 20%, 60%);
+}
+
+.modal {
+    /* background: hsl(120, 20%, 90%); */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+}
+
+.overlay {
+    background: rgba(87, 86, 86, 0.671);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    position: relative;
+}
+
+.modal-buttons {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.modal-button {
+    width: 50px;
+    padding: 0.2rem;
+    cursor: pointer;
+}
+
+.close-modal {
+    position: absolute;
+    top: 3px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.close {
+    display: none;
+}
+
+.overflowHidden {
+    overflow: hidden;
+}
